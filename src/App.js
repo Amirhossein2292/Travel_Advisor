@@ -26,15 +26,16 @@ const App = () => {
         })
     }, []);
     
-    useEffect(() => {    
+    useEffect(() => {
         setIsLoading(true);
-             
-        getPlacesData(bounds.sw, bounds.ne)
-            .then((data) => {
-                setPlaces(data);
-                setIsLoading(false);
-            })
-    }, [coordinates, bounds]);
+        if (bounds.sw && bounds.ne) {
+          getPlacesData(bounds.sw, bounds.ne).then((data) => {
+            console.log({ data });
+            setPlaces(data?.length ? data : []);
+            setIsLoading(false);
+          });
+        }
+      }, [coordinates, bounds]);
     
     return (
         <>
