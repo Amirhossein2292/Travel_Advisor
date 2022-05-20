@@ -14,8 +14,7 @@ const App = () => {
 
     const [places, setPlaces] = useState([]);
     const [childClicked, setChildClicked] = useState(null);
-
-    
+        
     const [coordinates, setCoordinates] = useState({lat: 0, lng: 0});
     const [bounds, setBounds] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
