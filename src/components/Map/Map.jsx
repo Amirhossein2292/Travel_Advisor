@@ -7,6 +7,7 @@ import Rating from '@material-ui/lab/Rating';
 
 import useStyles from './styles';
 
+import mapStyles from './mapStyles';
 
 const Map = ({ setCoordinates, setBounds, coordinates, places, setChildClicked, weatherData }) => {
 
@@ -22,7 +23,7 @@ const Map = ({ setCoordinates, setBounds, coordinates, places, setChildClicked, 
                 center={coordinates}
                 defaultZoom={14}
                 margin={[50, 50, 50, 50]}
-                options={''}
+                options={{ disableDefaultUI: true, zoomControl: true, styles: mapStyles }}
                 onChange={(e) => {
                     setCoordinates({ lat: e.center.lat, lng: e.center.lng });
                     setBounds({ ne: e.marginBounds.ne, sw: e.marginBounds.sw })
